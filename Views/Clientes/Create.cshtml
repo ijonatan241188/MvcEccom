@@ -1,0 +1,83 @@
+﻿@model MvcClientes.Models.Cliente
+
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row" style="width:100%">
+    <div class="col-6">
+        <h2 class="text-primary">Agregar Nuevo Cliente</h2>
+    </div>
+</div>
+
+
+
+
+            <form method="post" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <div style="padding-left:15%;padding-right:15%;padding-bottom:30px "></div>
+                    <div class="row p-3 border-0">
+                        <!--si hay un error en el modelo va a salir reflejado en el detalle-->
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    </div>
+                    <div class="form-row" style="padding-top:14px;">
+                        <div class="form-group col-md-6">
+                            <label>Nombres</label>
+                            <input asp-for="Nombre" class="form-control" placeholder="Nombres" />
+                            <span asp-validation-for="Nombre" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Apellidos</label>
+                            <input asp-for="Apellido" class="form-control" placeholder="Apellido" />
+                            <span asp-validation-for="Apellido" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label>Direccion</label>
+                            <input asp-for="Direccion" class="form-control" placeholder="Direccion" />
+                            <span asp-validation-for="Direccion" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label>Localidad</label>
+                            <input asp-for="Localidad" class="form-control" placeholder="Localidad" />
+                            <span asp-validation-for="Localidad" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <div class="form-row">
+                                <label>Telefono</label>
+                                <input asp-for="Telefono" class="form-control" placeholder="Telefono" />
+                                <span asp-validation-for="Telefono" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label>Email</label>
+                            <input asp-for="Email" class="form-control" placeholder="Email" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-row col-md-5">
+                            <div class="form-group col-md-6">
+                                <label>Estado</label>
+                                <select asp-for="Estado" class="form-control">
+                                    <option value="true">Activo</option>
+                                    <option value="false">Inactivo</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <a type="button" class="btn btn-primary" href="~/Clientes">Cerrar</a>
+                    <button type="submit" class="btn btn-success">Guardar Cambios</button>
+                </div>
+            </form>
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+} 

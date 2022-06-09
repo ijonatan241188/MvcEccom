@@ -1,0 +1,66 @@
+﻿@model IEnumerable<MvcClientes.Models.Productos>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row" style="width:100%">
+    <div class="col-6">
+        <h2 class="text-primary">Lista de Productos</h2>
+    </div>
+    <div class="col-4 text-right">
+    </div>
+</div>
+
+<p>
+    <a asp-action="Create" asp-controller="Productos" class="btn btn-info">Crear Nuevo Producto</a>
+</p>
+
+<div class="p-4 border rounded bg-light">
+    <table class="table table-bordered table-responsive-xl">
+        <thead>
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descripcion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Imagen)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Precio)
+                </th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descripcion)
+                    </td>
+                    <td>
+                        <img src="@item.Imagen" alt="gatito" class="card-img-top embed-responsive" Style="max-width:5rem; max-height:5rem" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Precio)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Detalle</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

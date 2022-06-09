@@ -1,0 +1,62 @@
+﻿@model MvcClientes.Models.Productos
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row" style="width:100%">
+    <div class="col-6">
+        <h2 class="text-primary">Agregar Nuevo Producto</h2>
+    </div>
+</div>
+
+
+
+
+<form method="post" enctype="multipart/form-data">
+    <div class="modal-body">
+        <div style="padding-left:15%;padding-right:15%;padding-bottom:30px "></div>
+        <div class="row p-3 border-0">
+            <!--si hay un error en el modelo va a salir reflejado en el detalle-->
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        </div>
+        <div class="form-row" style="padding-top:14px;">
+            <div class="form-group col-md-6">
+                <label>Nombres</label>
+                <input asp-for="Nombre" class="form-control" placeholder="Nombres" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Descripcion</label>
+                <input asp-for="Descripcion" class="form-control" placeholder="Descripcion" />
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-5">
+                <label>Imagen</label>
+                <input asp-for="Imagen" class="form-control" placeholder="Imagen" />
+                <span asp-validation-for="Imagen" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-5">
+                <label>Precio</label>
+                <input asp-for="Precio" class="form-control" placeholder="Precio" />
+                <span asp-validation-for="Precio" class="text-danger"></span>
+            </div>
+            </div>
+
+        </div>
+
+
+
+    <div class="modal-footer">
+        <a type="button" class="btn btn-primary" href="~/Productos">Cerrar</a>
+        <button type="submit" class="btn btn-success">Guardar Cambios</button>
+    </div>
+</form>
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+} 
